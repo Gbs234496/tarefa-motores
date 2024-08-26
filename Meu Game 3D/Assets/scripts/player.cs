@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vector3 = UnityEngine.Vector3;
 
 public class player : MonoBehaviour
@@ -18,7 +19,12 @@ public class player : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        Vector3 direcao = new Vector3(h, 0, v);
+        Vector3 direcao = new Vector3(x:h, y:0, z:v);
         rb.AddForce(direcao * velocidade * Time.deltaTime, ForceMode.Impulse);
+        if (transform.position.y < -5)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
+
