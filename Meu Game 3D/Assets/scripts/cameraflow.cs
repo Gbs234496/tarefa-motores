@@ -10,7 +10,7 @@ public class cameraflow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      alvo = GameObject.FindGameObjectWithTag("player").transform;
+      alvo = GameObject.FindGameObjectWithTag("Player").transform;
       offset = transform.position - alvo.position;
 
     }
