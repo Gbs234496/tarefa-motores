@@ -21,10 +21,11 @@ public class player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Chão")
-        {
-            chao = true;
-        }
+        if (collision.gameObject.tag == "chão"){
+        chao = true;
+        }    
+ 
+        
     }
 
 

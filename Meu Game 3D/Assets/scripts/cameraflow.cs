@@ -7,7 +7,8 @@ public class cameraflow : MonoBehaviour
 {
    Transform alvo;
    public Vector3 offset;
-    // Start is called before the first frame update
+   public int suavidade = 5;
+    //,mvm Start is called before the first frame update
     void Start()
     {
       alvo = GameObject.FindGameObjectWithTag("Player").transform;
@@ -17,7 +18,8 @@ public class cameraflow : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-       transform.position = alvo.position + offset; 
+    {   
+        Vector3 posFinal = alvo.position + offset;
+       transform.position = Vector3.Lerp(a:transform.position, b:posFinal, t:suavidade * Time.deltaTime);
     }
 }
