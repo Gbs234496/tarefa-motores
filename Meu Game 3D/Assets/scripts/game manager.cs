@@ -7,10 +7,11 @@ public class gamemanager : MonoBehaviour
 {
     public int moedas;
     public TMP_Text hud, msgVitoria;
-
-    void start()
+    public AudioClip moedacoletar, vitoriaclip;
+    private AudioSource sourse;
+    void Start()
     {
-        moedas = FindObjectsOfType<moeda>().Length;
+        moedas = FindObjectsOfType<Moeda>().Length;
         AtualizarHub();
     }
 
@@ -23,10 +24,13 @@ public class gamemanager : MonoBehaviour
     {
         moedas -= valor;
         AtualizarHub();
+        sourse.PlayOneShot(moedacoletar);
         if (moedas <= 0)
         {
             //ganhou o jogo
             msgVitoria.text = "Parabéns";
+            sourse.PlayOneShot(vitoriaclip);
+            sourse.Stop();
         }    
     }
 }

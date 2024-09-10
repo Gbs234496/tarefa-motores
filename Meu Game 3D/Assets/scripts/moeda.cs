@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moeda : MonoBehaviour
+public class Moeda : MonoBehaviour
 {
     public int velocidadeGiro = 50;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "player")
+        if (other.gameObject.tag == "Player")
         {
             FindObjectOfType<gamemanager>().SubtrairMoedas(1);
             Destroy(gameObject);
